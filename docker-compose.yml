@@ -4,6 +4,6 @@ services:
   flaskapp:
     build: .
     ports:
-      - "5000:5000"
+      - "5050:5000"
     volumes:
       - ./my_flask_app:/app
