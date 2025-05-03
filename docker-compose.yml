@@ -1,7 +1,11 @@
+version: '3.8'
+
 services:
   flaskapp:
     build: .
     ports:
-      - "5001:5000"   
+      - "5001:5001"  
     volumes:
       - ./my_flask_app:/app
+    environment:
+      - FLASK_ENV=development

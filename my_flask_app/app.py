@@ -46,15 +46,13 @@ def predict():
         # Make prediction
         prediction = model.predict(new_data)
         
-        # Decode the prediction
+         
         prediction_label = 'Less chance of heart attack' if prediction[0] == 1 else 'More chance of heart attack'
 
-        # Return prediction as JSON
         return jsonify({'result': prediction_label})
     
     except KeyError as e:
         return jsonify({'error': f"Missing form data for: {e.args[0]}"})
 
 if __name__ == '__main__':
-    # Run the Flask app on 0.0.0.0 to allow external access
-    app.run(debug=True, host="0.0.0.0", port=5000)
+     app.run(debug=True, host="0.0.0.0", port=5001)
