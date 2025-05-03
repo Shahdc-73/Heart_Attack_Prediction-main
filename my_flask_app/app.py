@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the pre-trained model
-model = joblib.load('model/model_pipeline.pkl')
+model = joblib.load('/app/model/model_pipeline.pkl')
 print(model)
 
 # Render the home page
@@ -37,7 +37,7 @@ def predict():
             'oldpeak': [float(form_data['oldpeak'])],
             'slp': [int(form_data['slp'])],
             'caa': [int(form_data['caa'])],
-            'thall': [int(form_data['thall'])]
+            'thall': [int(form_data['thall'])],
         })
 
         # Debug: Print the DataFrame
@@ -49,11 +49,12 @@ def predict():
         # Decode the prediction
         prediction_label = 'Less chance of heart attack' if prediction[0] == 1 else 'More chance of heart attack'
 
-# Return prediction as JSON
+        # Return prediction as JSON
         return jsonify({'result': prediction_label})
     
     except KeyError as e:
         return jsonify({'error': f"Missing form data for: {e.args[0]}"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Run the Flask app on 0.0.0.0 to allow external access
+    app.run(debug=True, host="0.0.0.0", port=5000)

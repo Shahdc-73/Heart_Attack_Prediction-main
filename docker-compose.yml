@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
   flaskapp:
     build: .
     ports:
-      - "5050:5000"
+      - "5001:5000"   
     volumes:
       - ./my_flask_app:/app
