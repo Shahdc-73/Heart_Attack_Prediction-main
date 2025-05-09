@@ -7,7 +7,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./frontend/static:/usr/share/nginx/html
+      - frontend_static:/usr/share/nginx/html
     depends_on:
       flaskapp:
         condition: service_healthy
@@ -44,5 +44,5 @@ networks:
     driver: bridge
 
 volumes:
-  frontend_data:
+  frontend_static:
   backend_data:
