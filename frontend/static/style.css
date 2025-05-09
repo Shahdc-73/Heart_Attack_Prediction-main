@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.1em;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333333;
+    display: block;
+}
+
+input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type=text]:focus, input[type=number]:focus, select:focus {
+    border-color: #083d75;
+    box-shadow: 0 0 5px rgba(8, 61, 117, 0.3);
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: #083d75;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: #01172f;
+    transform: translateY(-2px);
+}
+
+input[type=submit]:active {
+    transform: translateY(0);
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    color: #083d75;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #01172f;
+    text-decoration: underline;
+}
+
+/* Remove the br tags spacing */
+br {
+    display: none;
+}
+
+/* Add some spacing between form elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Style for select dropdowns */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 30px;
+}
+
+dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    background-color: white;
+}
+
+dialog h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+dialog p {
+    color: #555;
+}
+
+dialog button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+dialog .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+dialog button:hover {
+    background-color: darkred;
+}

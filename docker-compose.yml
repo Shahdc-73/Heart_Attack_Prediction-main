@@ -1,11 +1,48 @@
 version: '3.8'
 
 services:
-  flaskapp:
-    build: .
+  frontend:
+    build:
+      context: ./frontend
     ports:
-      - "5001:5001"  
+      - "80:80"
     volumes:
-      - ./my_flask_app:/app
+      - ./frontend/static:/usr/share/nginx/html
+    depends_on:
+      flaskapp:
+        condition: service_healthy
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  flaskapp:
+    build:
+      context: ./backend
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./backend:/app
     environment:
       - FLASK_ENV=development
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=1
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  frontend_data:
+  backend_data:

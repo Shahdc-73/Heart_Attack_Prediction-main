@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <div id="result" class="result-box">
+        <p>The predicted result is: <strong id="prediction-text"></strong></p>
+      </div>
+      <a href="/">Back to Home</a>
+    </div>
+
+    <script>
+      // Get the prediction from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const prediction = urlParams.get('prediction');
+      
+      // Update the prediction text
+      const predictionText = document.getElementById('prediction-text');
+      if (prediction) {
+        predictionText.textContent = prediction;
+        predictionText.style.color = prediction === 'High Risk' ? '#dc3545' : '#28a745';
+      } else {
+        predictionText.textContent = 'No prediction available';
+        predictionText.style.color = '#6c757d';
+      }
+    </script>
+  </body>
+</html>
